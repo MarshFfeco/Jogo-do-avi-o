@@ -3,6 +3,7 @@ var _up = keyboard_check(ord("W"));
 var _down = keyboard_check(ord("S"));
 var _left = keyboard_check(ord("A"));
 var _right = keyboard_check(ord("D"));
+var shield = keyboard_check_pressed((ord("E")));
 
 var _hspd = _right - _left;
 var _vspd = _down - _up;
@@ -24,29 +25,18 @@ if (_hspd != 0 || _vspd != 0) {
 	}
 }
 
-if(keyboard_check_pressed(vk_up)){
-	if(_level_tiro < 5){
-		_level_tiro++;
-	}
-	show_debug_message(_level_tiro);
+if(vida <= 0) {
+	instance_destroy();
 }
 
-if(keyboard_check_pressed(vk_down)){
-	if(_level_tiro > 1){
-		_level_tiro--;
-	}
-	show_debug_message(_level_tiro);
-}
+if(shield && obj_controller.limite_escudo > 0){
+	if(!instance_exists(obj_escudo)){
+		var escudo = instance_create_depth(x, y, 1, obj_escudo);
 
-if(keyboard_check_pressed(vk_left) && _espera_tiro >= 15){
-	_espera_tiro *= .9;
-	
-	show_debug_message(_espera_tiro);
-}
-if(keyboard_check_pressed(vk_right) && _espera_tiro < 40){
-	_espera_tiro *= 1.1;
-	
-	show_debug_message(_espera_tiro);
+		escudo.alvo = id;
+		
+		obj_controller.limite_escudo--;
+	}
 }
 
 atirando();

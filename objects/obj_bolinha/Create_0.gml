@@ -2,6 +2,8 @@
 // Inherit the parent event
 event_inherited();
 
+chance = 20;
+
 i_can_move = true;
 
 pontos = 200;

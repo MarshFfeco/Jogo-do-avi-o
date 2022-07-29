@@ -1,6 +1,7 @@
-/// @description acertando polvo
-instance_destroy(obj_tiro_player);
+/// @description colidiu com inimigo
+instance_destroy(other);
 
+vida--;
 
 
 

@@ -1,4 +1,6 @@
 /// @description 
+vida = 3;
+
 _spd = 8;
 
 _can_shoot = true;
@@ -60,25 +62,24 @@ function instancia_tiro(_can_move_fire = false, tiro_movemento = 0, x, y, layer,
 	}
 }
 
-///@method função para level Up
+///@method power_up(porcentagem);
 function power_up(chance) {
 	if(chance >= 0 && chance <= 45){
 		if(_spd <= 10) {
 			_spd += .5
-			show_debug_message("Peguei velocidade");
 		}
 	} 
 	
 	if(chance > 45 && chance <= 90){
 		if(_espera_tiro > 20){
 			_espera_tiro *= .9;
-			show_debug_message("Peguei menos delay");
 		}
 	}
 	
-	if(_level_tiro < 5) {
-		_level_tiro++;
-		show_debug_message("Peguei tiro");
+	if(chance > 90) {
+		if(_level_tiro < 5) {
+			_level_tiro++;
+		}
 	}
 }
 

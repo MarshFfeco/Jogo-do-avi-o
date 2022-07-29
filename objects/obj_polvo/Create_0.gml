@@ -3,6 +3,8 @@ vspeed += 8 / 1.7;
 
 alarm[0] = room_speed;
 
+chance = 10;
+
 pontos = 50;
 
 if(place_meeting(x, y, obj_polvo)){
@@ -17,6 +19,13 @@ atirando = function(){
 	}
 }
 
+dropar = function(_chance){
+	var valor = random(100);
+	
+	if(valor < _chance){
+		instance_create_layer(x, y, "powerUp", obj_powe_up);
+	}
+}
 
 
 

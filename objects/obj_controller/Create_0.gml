@@ -7,6 +7,8 @@ level = 1;
 
 mais_level = 500;
 
+limite_escudo = 5;
+
 //@method ganhar pontos com argumentos 
 global.ganhar_pontos = function(ganhos) {
 	pontos += ganhos;
@@ -20,7 +22,7 @@ global.ganhar_pontos = function(ganhos) {
 
 _cria_inimigo = function(){
 	var _x_position = random_range(32, 1898)/* - sprite_get_width*/;
-	var _y_position = - random_range(40, 300);
+	var _y_position = - random_range(70, 300);
 
 	var _obj_instance = obj_polvo;
 
