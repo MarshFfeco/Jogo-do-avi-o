@@ -6,7 +6,7 @@ chance = 20;
 
 i_can_move = true;
 
-pontos = 200;
+pontos = 50;
 
 atirando = function(){
 	if(y > 0) {

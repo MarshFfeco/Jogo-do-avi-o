@@ -1,17 +1,19 @@
 /// @description 
+randomize(); //atualiza a seed
+
 alarm[0] = room_speed * .5;
 
 pontos = 0;
 
 level = 1;
 
-mais_level = 500;
+isSequence = noone;
 
-limite_escudo = 5;
+mais_level = 200;
 
 //@method ganhar pontos com argumentos 
 global.ganhar_pontos = function(ganhos) {
-	pontos += ganhos;
+	pontos += ganhos * level;
 	
 	if(pontos >= mais_level) {
 		level++;
@@ -21,8 +23,8 @@ global.ganhar_pontos = function(ganhos) {
 };
 
 _cria_inimigo = function(){
-	var _x_position = random_range(32, 1898)/* - sprite_get_width*/;
-	var _y_position = - random_range(70, 300);
+	var _x_position = irandom_range(32, 1898)/* - sprite_get_width*/;
+	var _y_position = irandom_range(-70, -1500 - (level * 500));
 
 	var _obj_instance = obj_polvo;
 

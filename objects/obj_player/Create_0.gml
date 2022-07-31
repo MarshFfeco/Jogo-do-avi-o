@@ -1,9 +1,12 @@
 /// @description 
 vida = 3;
 
+_escudo = 5;
+
 _spd = 8;
 
 _can_shoot = true;
+
 _level_tiro = 1;
 
 _espera_tiro = room_speed;
@@ -64,25 +67,40 @@ function instancia_tiro(_can_move_fire = false, tiro_movemento = 0, x, y, layer,
 
 ///@method power_up(porcentagem);
 function power_up(chance) {
-	if(chance >= 0 && chance <= 45){
-		if(_spd <= 10) {
-			_spd += .5
+	if(chance >= 0 && chance < 45){
+		if(_spd <= 15) {
+			_spd += .5;
+		} else {
+			_escudo++;
 		}
 	} 
 	
-	if(chance > 45 && chance <= 90){
-		if(_espera_tiro > 20){
+	if(chance > 45 && chance < 80){
+		if(_espera_tiro >= .3){
+			show_debug_message("conseguir");
 			_espera_tiro *= .9;
+		} else {
+			_escudo++;
 		}
 	}
 	
-	if(chance > 90) {
+	if(chance >= 80) {
 		if(_level_tiro < 5) {
 			_level_tiro++;
+		} else {
+			vida++;
 		}
 	}
 }
 
-
+function perde_vida(tremedera = 10){
+	if(vida > 0){
+		vida--;
+		sc_screen_shake(tremedera);
+	} else {
+		instance_destroy();
+		sc_screen_shake(20);
+	}
+}
 
 

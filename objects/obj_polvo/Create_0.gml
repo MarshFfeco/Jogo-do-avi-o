@@ -5,7 +5,7 @@ alarm[0] = room_speed;
 
 chance = 10;
 
-pontos = 50;
+pontos = 20;
 
 if(place_meeting(x, y, obj_polvo)){
 	instance_destroy(id, false);
@@ -22,7 +22,7 @@ atirando = function(){
 dropar = function(_chance){
 	var valor = random(100);
 	
-	if(valor < _chance){
+	if(valor < _chance && y >= 100 && y <= 900){
 		instance_create_layer(x, y, "powerUp", obj_powe_up);
 	}
 }

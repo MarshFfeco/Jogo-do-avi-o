@@ -1,7 +1,10 @@
 /// @description colidiu com inimigo
-instance_destroy(other);
+if(!instance_exists(obj_escudo)){
+	instance_destroy(other);
 
-vida--;
+	perde_vida();
+}
+
 
 
 

@@ -1,7 +1,10 @@
 /// @description acertou player
-instance_destroy();
+if(!instance_exists(obj_escudo)){
+	instance_destroy();
 
-other.vida--;
+	other.perde_vida(5);
+}
+
 
 
 

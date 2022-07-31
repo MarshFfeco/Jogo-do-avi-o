@@ -10,4 +10,11 @@ repeat(obj_player.vida){
 	multi++;;
 }
 
+multi = 0;
+
+repeat(_escudo){
+	draw_sprite_ext(spr_escudo, 2, _x_player + espaco * multi, _y_player - 40, .25, .25, 0, c_white, .5);
+	multi++;
+}
+
 
